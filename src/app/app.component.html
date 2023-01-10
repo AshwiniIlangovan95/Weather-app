@@ -1,0 +1,92 @@
+<div class="search">
+  <form (submit)="searchData()">  
+    <input type="text" placeholder="search city" name="city" [(ngModel)]="cityName"> 
+    <button type="submit">search</button>
+  </form>
+</div>
+
+
+
+<div class = "container">
+  <div class = "upper-data">
+    <img src ="../assets/sunny.jpg"  *ngIf=" weather.main.temp > 27">
+    <img src ="../assets/cold.jpg"  *ngIf="weather.main.temp <= 27">
+    <div class="weather-data">
+      <div class="location">{{weather.name}}</div>
+      <div class="temperature">{{ weather.main.temp }}°C </div>
+    </div>
+  </div>
+
+  <div class = "lower-data">
+    <div class="more-info">
+      <!-- More Information -->
+    </div>
+    <!-- <div class="tomorrow">         
+      <a class="weather-button" [ngClass]="activeType === 'Today' ? 'active' : ''" (click)="setActiveType('Today')">Today</a>
+      <a class="weather-button" [ngClass]="activeType === 'Tommorrow' ? 'active' : ''" (click)="setActiveType('Tommorrow')">Tommorrow</a>
+      <a class="weather-button" [ngClass]="activeType === '10 days' ? 'active' : ''" (click)="setActiveType('10 days')">10 days</a>
+      <a class="weather-button" [ngClass]="activeType === 'Radar' ? 'active' : ''" (click)="setActiveType('Radar')">Radar</a>
+
+    </div> -->
+    <div class="more-info-container">
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/wind.png" width="50px" height="50px">
+          <span>Wind</span>
+          <div class="info-block-value">
+            {{weather.wind.speed}} km/hr
+          </div>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/dew.jpg" width="50px" height="50px">
+          <span>Dew</span>
+          <div class="info-block-value">
+            10°C
+          </div>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/humidity.jpg" width="50px" height="50px">
+          <span>Humidity</span>
+          <div class="info-block-value">
+            {{weather.main.humidity}}%
+          </div>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/pressure.jpg" width="50px" height="50px">
+          <span>Pressure</span>
+          <div class="info-block-value">
+            {{weather.main.pressure}}
+          </div>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/min-temp.png" width="50px" height="50px">
+          <span>Min</span>
+          <div class="info-block-value">
+            {{weather.main.temp_min}}
+          </div>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/max-temp.png" width="50px" height="50px">
+          <span>Max</span>
+          <div class="info-block-value">
+            {{weather.main.temp_max}}
+          </div>
+        </div>
+      </div>
+    </div>    
+      
+      
+    
+
+  </div>
+</div>
